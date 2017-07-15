@@ -1,0 +1,41 @@
+[user]
+    name = "Arpad Borsos"
+    email = arpad.borsos@googlemail.com
+    signingkey = 908EDF65263368B4
+
+[color]
+    ui = auto
+
+[alias]
+    st = status -s
+    co = checkout
+    ci = commit -v -a
+    glog = log --graph --decorate
+    psuh = push
+    pum = pull upstream master
+    pur = pull --rebase
+
+[core]
+    editor = vim
+    pager = diff-so-fancy | less --tabs=4 -RFX
+
+[push]
+    default = simple
+
+[merge]
+    tool = meld
+
+[rerere]
+    enabled = true
+
+[credential]
+    helper = cache
+
+[diff]
+    compactionHeuristic = true
+
+[interactive]
+    diffFilter = diff-so-fancy
+
+[commit]
+    gpgsign = true
