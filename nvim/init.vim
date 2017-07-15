@@ -17,11 +17,13 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
-Plug 'junegunn/fzf'
+"Plug 'junegunn/fzf' " pacman has this as global vim plugin
 Plug 'Shougo/echodoc.vim'
 Plug 'Shougo/neosnippet.vim'
 
 call plug#end()
+
+set rtp+=/usr/share/vim/vimfiles
 
 " Options
 

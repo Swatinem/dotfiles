@@ -16,7 +16,7 @@
     pur = pull --rebase
 
 [core]
-    editor = vim
+    editor = nvim
     pager = diff-so-fancy | less --tabs=4 -RFX
 
 [push]
