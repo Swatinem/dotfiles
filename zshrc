@@ -26,11 +26,12 @@ alias gg='git grep'
 alias perfrec='perf record -g --call-graph=dwarf'
 # --exclude-perf'
 
-export PATH=.:./node_modules/.bin:$HOME/bin:$HOME/.cargo/bin:$PATH
+export PATH=.:./node_modules/.bin:$HOME/bin:$HOME/.cargo/bin:/usr/lib/ccache/bin:$PATH
 
 alias cargo="nice -n 10 cargo"
-#export RUST_BACKTRACE=1
-#export RUSTC_WRAPPER=sccache
+export RUST_BACKTRACE=1
+export RUSTC_WRAPPER=sccache
+export RUSTFLAGS="-C target-cpu=native"
 export RUST_SRC_PATH=~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src
 
 source /usr/share/fzf/key-bindings.zsh
