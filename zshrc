@@ -37,5 +37,5 @@ export RUST_SRC_PATH=~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/r
 source /usr/share/fzf/key-bindings.zsh
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*" --glob "!.hg/*" --glob "!node_modules/*"'
 
-source .config/secret-envs.sh
+source ~/.config/secret-envs.sh
 source /usr/share/nvm/init-nvm.sh
