@@ -26,7 +26,7 @@ alias gg='git grep'
 alias perfrec='perf record -g --call-graph=dwarf'
 # --exclude-perf'
 
-export PATH=.:./node_modules/.bin:$HOME/bin:$HOME/.cargo/bin:/usr/lib/ccache/bin:$PATH
+export PATH=.:./node_modules/.bin:$HOME/bin:$HOME/.cargo/bin:$HOME/.config/npm/bin:/usr/lib/ccache/bin:$PATH
 
 alias cargo="nice -n 10 cargo"
 export RUST_BACKTRACE=1
@@ -35,4 +35,7 @@ export RUSTFLAGS="-C target-cpu=native"
 export RUST_SRC_PATH=~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src
 
 source /usr/share/fzf/key-bindings.zsh
-export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*" --glob "!.hg/*"'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*" --glob "!.hg/*" --glob "!node_modules/*"'
+
+source .config/secret-envs.sh
+source /usr/share/nvm/init-nvm.sh

@@ -15,6 +15,12 @@ Plug 'editorconfig/editorconfig-vim'
 
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
+Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'flowtype/vim-flow', { 'for': ['javascript', 'javascript.jsx'] }
+
+Plug 'w0rp/ale'
+
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 "Plug 'junegunn/fzf' " pacman has this as global vim plugin
@@ -108,6 +114,11 @@ nmap <silent> <A-Down> :wincmd j<CR>
 nmap <silent> <A-Left> :wincmd h<CR>
 nmap <silent> <A-Right> :wincmd l<CR>
 
+tnoremap <silent> <A-Up> <C-\><C-n> :wincmd k<CR>
+tnoremap <silent> <A-Down> <C-\><C-n> :wincmd j<CR>
+tnoremap <silent> <A-Left> <C-\><C-n> :wincmd h<CR>
+tnoremap <silent> <A-Right> <C-\><C-n> :wincmd l<CR>
+
 " Plugin Options
 let NERDCommentWholeLinesInVMode=1
 
@@ -124,10 +135,24 @@ nmap <C-t> :NERDTreeToggle<CR>
 nnoremap <Leader>o :FZF<CR>
 
 " Completion and snippet options
+let g:LanguageClient_rootMarkers = {
+    \ 'javascript': ['.flowconfig'],
+    \ 'javascript.jsx': ['.flowconfig'],
+    \ 'rust': ['Cargo.toml'],
+\ }
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ 'javascript': ['flow-language-server', '--stdio'],
+    \ 'javascript.jsx': ['flow-language-server', '--stdio'],
 \ }
 let g:LanguageClient_autoStart = 1
+
+let g:flow#enable = 0
+let g:flow#autoclose = 1
+let g:flow#showquickfix = 0
+"let g:flow#omnifunc = 0
+let g:javascript_plugin_flow = 1
+let g:jsx_ext_required = 0
 
 nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
