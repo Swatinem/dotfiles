@@ -26,7 +26,7 @@ alias gg='git grep'
 alias perfrec='perf record -g --call-graph=dwarf'
 # --exclude-perf'
 
-export PATH=.:./node_modules/.bin:$HOME/bin:$HOME/.cargo/bin:$HOME/.config/npm/bin:/usr/lib/ccache/bin:$PATH
+export PATH=.:./node_modules/.bin:$HOME/bin:$HOME/.cargo/bin:$HOME/.yarn/bin:/usr/lib/ccache/bin:$PATH
 
 alias cargo="nice -n 10 cargo"
 export RUST_BACKTRACE=1

@@ -17,13 +17,22 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'flowtype/vim-flow', { 'for': ['javascript', 'javascript.jsx'] }
+"Plug 'flowtype/vim-flow', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'leafgarland/typescript-vim', { 'for': ['typescript'] }
 
 Plug 'w0rp/ale'
 
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+Plug 'wellle/targets.vim'
+
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'roxma/nvim-completion-manager'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 "Plug 'junegunn/fzf' " pacman has this as global vim plugin
+Plug 'junegunn/fzf.vim'
+Plug 'cloudhead/neovim-fuzzy'
 Plug 'Shougo/echodoc.vim'
 Plug 'Shougo/neosnippet.vim'
 
@@ -105,9 +114,6 @@ nnoremap <C-w> :bnext<bar>split<bar>bprevious<bar>bdelete<CR>
 nnoremap <C-right> :bnext<CR>
 nnoremap <C-left> :bprevious<CR>
 
-" insert newline
-nnoremap <Enter> o<Esc>
-
 " move between windows with alt + arrows
 nmap <silent> <A-Up> :wincmd k<CR>
 nmap <silent> <A-Down> :wincmd j<CR>
@@ -132,27 +138,51 @@ let g:NERDTreeWinSize=25
 nmap <C-t> :NERDTreeToggle<CR>
 
 " open files
-nnoremap <Leader>o :FZF<CR>
+"nnoremap <Leader>o :FZF<CR>
+nnoremap <Leader>o :FuzzyOpen<CR>
+nnoremap <Leader>g :FuzzyGrep<CR>
+
+set grepprg=rg\ --vimgrep\ --no-heading
+set grepformat=%f:%l:%c:%m,%f:%l:%m
+
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
 
 " Completion and snippet options
+" TODO: switch javascript to typescript maybe?
 let g:LanguageClient_rootMarkers = {
+    \ 'rust': ['Cargo.toml'],
     \ 'javascript': ['.flowconfig'],
     \ 'javascript.jsx': ['.flowconfig'],
-    \ 'rust': ['Cargo.toml'],
+    \ 'typescript': ['tsconfig.json'],
 \ }
+    "\ 'javascript': ['tsconfig.json'],
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
     \ 'javascript': ['flow-language-server', '--stdio'],
     \ 'javascript.jsx': ['flow-language-server', '--stdio'],
+    \ 'typescript': ['typescript-language-server', '--stdio'],
 \ }
-let g:LanguageClient_autoStart = 1
+    "\ 'javascript': ['typescript-language-server', '--stdio'],
 
-let g:flow#enable = 0
-let g:flow#autoclose = 1
-let g:flow#showquickfix = 0
+"let g:flow#enable = 0
+"let g:flow#autoclose = 1
+"let g:flow#showquickfix = 0
 "let g:flow#omnifunc = 0
 let g:javascript_plugin_flow = 1
 let g:jsx_ext_required = 0
+
+let g:ale_fixers = {
+\   'javascript': ['prettier', 'eslint'],
+\   'javascript.jsx': ['prettier', 'eslint'],
+\}
+"let g:ale_fix_on_save = 1
+let g:ale_javascript_prettier_use_local_config = 1
+nnoremap <Leader>f :ALEFix<CR>
 
 nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
@@ -169,12 +199,14 @@ let g:neosnippet#disable_runtime_snippets = {
     \   '_' : 1,
 \ }
 
+imap <expr> <CR>  (pumvisible() ?  "\<c-y>\<Plug>(expand_or_nl)" : "\<CR>")
+imap <expr> <Plug>(expand_or_nl) (cm#completed_is_snippet() ? "\<C-U>":"\<CR>")
+
 imap <expr><Tab> neosnippet#expandable_or_jumpable() ?
     \ "\<Plug>(neosnippet_expand_or_jump)" : (pumvisible() ? "\<C-n>" : "\<Tab>")
-smap <expr><Tab> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<Tab>"
-imap <expr><S-Tab> pumvisible() ? "\<C-p>" : ""
-smap <expr><S-Tab> pumvisible() ? "\<C-p>" : ""
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+imap <expr> <S-Tab> pumvisible() ? "\<C-p>" : ""
+"imap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " lightline Options
 let g:lightline = {
