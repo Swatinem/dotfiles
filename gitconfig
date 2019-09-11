@@ -14,13 +14,16 @@
     psuh = push
     pum = pull upstream master
     pur = pull --rebase
+    pun = push --no-verify
+    rim = rebase -i master
+    rc = rebase --continue
 
 [core]
     editor = nvim
     pager = diff-so-fancy | less --tabs=4 -RFX
 
-[push]
-    default = simple
+;[push]
+;    default = current
 
 [merge]
     tool = meld
@@ -29,18 +32,16 @@
     enabled = true
 
 [credential]
-    helper = cache
+    helper = store
 
 [diff]
     compactionHeuristic = true
+    renameLimit = 10000
 
 [interactive]
     diffFilter = diff-so-fancy
 
 [commit]
     gpgsign = true
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+[tag]
+    gpgsign = true
