@@ -3,10 +3,21 @@
 
 mkdir -p ~/.config/nvim
 mkdir -p ~/.zfunc
+mkdir -p ~/.config/Code/User
 
 ln -srf ./nvim/init.vim ~/.config/nvim/init.vim
 ln -srf ./zshrc ~/.zshrc
 ln -srf ./gitconfig ~/.gitconfig
+
+for file in $(ls ./vscode/)
+do
+    ln -srf ./vscode/$file ~/.config/Code/User/$file
+done
+
+# TODO:
+# * vscode extensions
+# * alacritty config
+# * tmux config
 
 rustup completions zsh > ~/.zfunc/_rustup
 

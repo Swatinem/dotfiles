@@ -1,0 +1,39 @@
+{
+  "workbench.colorTheme": "Ayu Light Bordered",
+  "window.menuBarVisibility": "toggle",
+  "editor.fontFamily": "Source Code Pro",
+  "editor.renderWhitespace": "all",
+  "editor.renderControlCharacters": true,
+  "editor.wordWrap": "on",
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": false,
+  // "editor.lineDecorationsWidth": 8,
+  "editor.rulers": [80, 120],
+  "editor.minimap.enabled": false,
+  "workbench.startupEditor": "newUntitledFile",
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": true
+  },
+  "editor.tabCompletion": "on",
+  "prettier.eslintIntegration": true,
+  "prettier.tslintIntegration": true,
+  "workbench.activityBar.visible": true,
+  "editor.folding": false,
+  "editor.suggestSelection": "recentlyUsedByPrefix",
+  "files.defaultLanguage": "markdown",
+  "rust-client.channel": "stable",
+  "breadcrumbs.enabled": false,
+  "breadcrumbs.filePath": "last",
+  "editor.formatOnSave": true,
+  "editor.suggest.localityBonus": true,
+  "workbench.editor.highlightModifiedTabs": true,
+  "editor.glyphMargin": false,
+  "window.titleBarStyle": "native",
+  "diffEditor.renderSideBySide": false,
+  "editor.fontSize": 14, // 14
+  "editor.lineHeight": 21, // 21
+  "gitlens.codeLens.enabled": false,
+  "typescript.updateImportsOnFileMove.enabled": "always"
+}
