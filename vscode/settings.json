@@ -35,5 +35,6 @@
   "editor.fontSize": 14, // 14
   "editor.lineHeight": 21, // 21
   "gitlens.codeLens.enabled": false,
-  "typescript.updateImportsOnFileMove.enabled": "always"
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.disableAutomaticTypeAcquisition": true
 }
