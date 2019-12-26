@@ -9,6 +9,7 @@ ln -srf ./nvim/init.vim ~/.config/nvim/init.vim
 ln -srf ./zshrc ~/.zshrc
 ln -srf ./gitconfig ~/.gitconfig
 ln -srf ./starship.toml ~/.config/starship.toml
+ln -srf ./alacritty.yml ~/.config/alacritty/alacritty.yml
 
 for file in $(ls ./vscode/)
 do
@@ -17,7 +18,6 @@ done
 
 # TODO:
 # * vscode extensions
-# * alacritty config
 # * tmux config
 
 rustup completions zsh > ~/.zfunc/_rustup

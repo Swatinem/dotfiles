@@ -1,0 +1,105 @@
+# disable scaling which does not work correctly when using external screens
+env:
+  WINIT_HIDPI_FACTOR: "1"
+
+window:
+  dimensions:
+    columns: 140
+    lines: 32
+  padding:
+    x: 1
+    y: 1
+  dynamic_padding: false
+
+font:
+  normal:
+    family: "Source Code Pro"
+  size: 10
+  offset:
+    y: 1
+
+mouse:
+  url:
+    modifiers: Control
+
+schemes:
+  # Colors (One Half Light)
+  one-half-light: &one-half-light # Default colors
+    primary:
+      background: "0xfafafa"
+      foreground: "0x383a42"
+    # Normal colors
+    normal:
+      black: "0x383a42"
+      red: "0xe45649"
+      green: "0x50a14f"
+      yellow: "0xc18401"
+      blue: "0x0184bc"
+      magenta: "0xa626a4"
+      cyan: "0x0997b3"
+      white: "0xfafafa"
+    # Bright colors
+    bright:
+      black: "0x383a42"
+      red: "0xe45649"
+      green: "0x50a14f"
+      yellow: "0xc18401"
+      blue: "0x0184bc"
+      magenta: "0xa626a4"
+      cyan: "0x0997b3"
+      white: "0xfafafa"
+
+  # Colors (Ayu Dark)
+  ayu-dark: &ayu-dark # Default colors
+    primary:
+      background: "0x0A0E14"
+      foreground: "0xB3B1AD"
+    # Normal colors
+    normal:
+      black: "0x01060E"
+      red: "0xEA6C73"
+      green: "0x91B362"
+      yellow: "0xF9AF4F"
+      blue: "0x53BDFA"
+      magenta: "0xFAE994"
+      cyan: "0x90E1C6"
+      white: "0xC7C7C7"
+    # Bright colors
+    bright:
+      black: "0x686868"
+      red: "0xF07178"
+      green: "0xC2D94C"
+      yellow: "0xFFB454"
+      blue: "0x59C2FF"
+      magenta: "0xFFEE99"
+      cyan: "0x95E6CB"
+      white: "0xFFFFFF"
+
+  # Colors (Ayu Light)
+  ayu-light: &ayu-light # Default Colors
+    primary:
+      background: "0xFAFAFA"
+      foreground: "0x6C7680"
+    # Normal colors
+    normal:
+      black: "0x000000"
+      red: "0xEA6C6D"
+      green: "0x99BF4D"
+      yellow: "0xECA944"
+      blue: "0x3199E1"
+      magenta: "0x9E75C7"
+      cyan: "0x46BA94"
+      white: "0xC7C7C7"
+    # Bright colors
+    bright:
+      black: "0x686868"
+      red: "0xF07171"
+      green: "0x86B300"
+      yellow: "0xF2AE49"
+      blue: "0x399EE6"
+      magenta: "0xA37ACC"
+      cyan: "0x4CBF99"
+      white: "0xD1D1D1"
+
+colors: *ayu-light
+# colors: *one-half-light
