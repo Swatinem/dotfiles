@@ -1,0 +1,22 @@
+add_newline = false
+prompt_order = ["character", "directory", "git_branch", "git_status", "jobs", "cmd_duration"]
+
+[cmd_duration]
+show_milliseconds = true
+
+[character]
+symbol = "λ"
+
+[directory]
+truncation_length = 8
+truncate_to_repo = false
+prefix = ""
+
+[git_branch]
+symbol = ""
+prefix = ""
+
+[git_status]
+prefix = ""
+suffix = " "
+untracked = ""

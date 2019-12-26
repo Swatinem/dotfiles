@@ -48,3 +48,4 @@ export CYPRESS_INSTALL_BINARY=0
 source ~/.config/secret-envs.sh
 source /usr/share/nvm/init-nvm.sh
 
+eval "$(starship init zsh)"

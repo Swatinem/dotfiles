@@ -8,6 +8,7 @@ mkdir -p ~/.config/Code/User
 ln -srf ./nvim/init.vim ~/.config/nvim/init.vim
 ln -srf ./zshrc ~/.zshrc
 ln -srf ./gitconfig ~/.gitconfig
+ln -srf ./starship.toml ~/.config/starship.toml
 
 for file in $(ls ./vscode/)
 do
