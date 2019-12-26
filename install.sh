@@ -15,6 +15,8 @@ for file in $(ls ./vscode/)
 do
     ln -srf ./vscode/$file ~/.config/Code/User/$file
 done
+# meh, the above code creates recursive links…
+rm ./vscode/snippets/snippets
 
 # TODO:
 # * vscode extensions
