@@ -8,7 +8,10 @@
   "editor.formatOnPaste": true,
   "editor.formatOnType": false,
   // "editor.lineDecorationsWidth": 8,
-  "editor.rulers": [80, 120],
+  "editor.rulers": [
+    80,
+    120
+  ],
   "editor.minimap.enabled": false,
   "workbench.startupEditor": "newUntitledFile",
   "editor.quickSuggestions": {
@@ -17,8 +20,6 @@
     "strings": true
   },
   "editor.tabCompletion": "on",
-  "prettier.eslintIntegration": true,
-  "prettier.tslintIntegration": true,
   "workbench.activityBar.visible": true,
   "editor.folding": false,
   "editor.suggestSelection": "recentlyUsedByPrefix",
@@ -36,5 +37,16 @@
   "editor.lineHeight": 21, // 21
   "gitlens.codeLens.enabled": false,
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "typescript.disableAutomaticTypeAcquisition": true
+  "typescript.disableAutomaticTypeAcquisition": true,
+  "rust-analyzer.cargo.allFeatures": true,
+  "rust-analyzer.checkOnSave.allFeatures": true,
+  "rust-analyzer.checkOnSave.command": "clippy",
+  "rust-analyzer.inlayHints.chainingHints": false,
+  "rust-analyzer.inlayHints.enable": false,
+  "rust-analyzer.inlayHints.typeHints": false,
+  "rust-analyzer.procMacro.enable": true,
+  "rust-analyzer.updates.askBeforeDownload": false,
+  "rust-analyzer.assist.importMergeBehaviour": "last",
+  "prettier.trailingComma": "all",
+  "prettier.printWidth": 120
 }
