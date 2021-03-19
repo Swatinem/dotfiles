@@ -48,5 +48,14 @@
   "rust-analyzer.updates.askBeforeDownload": false,
   "rust-analyzer.assist.importMergeBehaviour": "last",
   "prettier.trailingComma": "all",
-  "prettier.printWidth": 120
+  "prettier.printWidth": 120,
+  "[c]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

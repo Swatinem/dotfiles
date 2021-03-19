@@ -35,8 +35,8 @@ alias code="nice -n 10 code"
 
 export RUST_BACKTRACE=1
 #export RUSTC_WRAPPER=sccache
-export RUSTFLAGS="-C target-cpu=native"
-export RUST_SRC_PATH=~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src
+#export RUSTFLAGS="-C target-cpu=native"
+#export RUST_SRC_PATH=~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src
 
 export WINIT_HIDPI_FACTOR=1.0
 
@@ -46,6 +46,5 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*" --glob
 export CYPRESS_INSTALL_BINARY=0
 
 source ~/.config/secret-envs.sh
-source /usr/share/nvm/init-nvm.sh
 
 eval "$(starship init zsh)"

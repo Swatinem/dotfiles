@@ -1,7 +1,14 @@
 [user]
     name = "Arpad Borsos"
-    email = arpad.borsos@googlemail.com
+	email = swatinem@swatinem.de
     signingkey = 908EDF65263368B4
+
+[commit]
+    gpgsign = true
+[tag]
+    gpgsign = true
+[pull]
+	rebase = true
 
 [color]
     ui = auto
@@ -17,6 +24,7 @@
     pun = push --no-verify
     rim = rebase -i master
     rc = rebase --continue
+    sur = submodule update --recursive
 
 [core]
     editor = nvim
@@ -24,9 +32,6 @@
 
 ;[push]
 ;    default = current
-
-[merge]
-    tool = meld
 
 [rerere]
     enabled = true
@@ -40,10 +45,3 @@
 
 [interactive]
     diffFilter = diff-so-fancy
-
-[commit]
-    gpgsign = true
-[tag]
-    gpgsign = true
-[pull]
-	rebase = true
